@@ -11,8 +11,8 @@ export default function FindEventSection() {
   const [ searchTerm, setSearchTerm ] = useState('')
   
   const {data, isLoading, isError, error} = useQuery({
-    queryKey: ['events', { search: searchTerm }],
-    queryFn: ({signal}) => fetchEvents({signal, searchTerm}),
+    queryKey: ['events', { searchTerm: searchTerm }],
+    queryFn: ({signal, queryKey}) => fetchEvents({signal, ...queryKey[1]}),
     enabled: searchTerm !== undefined
     // '' 이 아니라 undefined를 값으로 하는 이유 : 유저가 작성한 내용을 삭제하고 검색하는 경우 전체 리스트 호출. 아무것도 검새하지 않은 경우에만 비활성화되도록 하기 위함
   })
