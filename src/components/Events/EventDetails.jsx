@@ -102,7 +102,7 @@ export default function EventDetails ()
             {isPendingDeletion && <p>Deleting, please wait...</p>}
             {!isPendingDeletion && (
               <>
-                <button onClick={handleStopDelete} className='button-text'>Cancle</button>
+                <button onClick={handleStopDelete} className='button-text'>Cancel</button>
                 <button onClick={handleDelete} className='button'>Delete</button>
               </>
             )}
